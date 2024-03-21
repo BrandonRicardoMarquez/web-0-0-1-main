@@ -1,0 +1,67 @@
+{% include 'admin/caad.html' %}
+<br>
+<div class="col-6 mx-auto">
+  <div class="card text-center text-bg-dark">
+      <div class="card-header">
+          Editar productos
+      </div>
+      <div class="card-body">
+             <form 
+             
+             {% if session[ 'rango' ]=="admin" %}
+               
+             action="/act"
+
+             {% endif %}
+             {% if session[ 'rango' ]==0 %}
+               
+             action="/act2"
+
+             {% endif %}
+             
+             method="post" enctype="multipart/form-data">
+                {% for producto in productos %}
+                 <div class="mb-3">
+                   <label for="Codigo" class="form-label">Codigo</label>
+                   <input type="number"  value="{{ producto[0] }}"
+                     class="form-control"  readonly=»readonly»  name="Codigo" id="CD" aria-describedby="helpId" placeholder="Codigo del producto" maxlength="11">
+                 </div>
+                 <div class="mb-3">
+                     <label for="Nombre" class="form-label">Nombre</label>
+                     <input type="text"  value="{{ producto[1] }}"
+                       class="form-control" name="Nombre" id="NOM" aria-describedby="helpId" placeholder="Nombre del producto" maxlength="50">
+                   </div>
+                   <div class="mb-3">
+                     <label for="cantidad" class="form-label">Precio de Compra</label>
+                     <input type="number"  value="{{ producto[2] }}"
+                       class="form-control" name="preciodecompra" id="Prec" aria-describedby="helpId" placeholder="Cantidad del producto" min="0" maxlength="11">
+                   </div>
+                   <div class="mb-3">
+                    <label for="cantidad" class="form-label">Precio de Venta</label>
+                    <input type="number"  value="{{ producto[3] }}"
+                      class="form-control" name="preciodeventa" id="Prev" aria-describedby="helpId" placeholder="Cantidad del producto"  min="0" maxlength="11">
+                  </div>
+                  <div class="mb-3">
+                    <label for="cantidad" class="form-label">Existencia</label>
+                    <input type="number"  value="{{ producto[4] }}"
+                      class="form-control" name="existencia" id="Exi" aria-describedby="helpId" placeholder="Cantidad del producto"  min="0" maxlength="11">
+                  </div>
+                   <div class="mb-3">
+                     <label for="costo" class="form-label">Restriccion</label>
+                     <input type="number"  value="{{ producto[5] }}"
+                       class="form-control" name="restriccion" id="Rres" aria-describedby="helpId" placeholder="Costo del producto"  min="0" maxlength="11">
+                   </div>
+                   <div class="mb-3">
+                    <label for="Costo" class="form-label">Imagen</label>
+                    <input type="file" 
+                      class="form-control" value="{{ producto[6] }}"  readonly name="imagen"  id="imagen" aria-describedby="helpId"  maxlength="255">
+                  </div>
+                   
+                   <button type="submit" class="btn btn-success">Guardar</button>
+            {% endfor %}
+             </form>
+
+         </div>
+     </div>
+ </div>
+ {% include 'admin/piead.html' %}

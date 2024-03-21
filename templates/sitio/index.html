@@ -1,0 +1,51 @@
+
+        {% include 'sitio/cabecera.html' %}
+        <div>
+        <link rel="stylesheet" href="{{url_for('static',filename='cs/c.css')}}">
+
+        <header class="masthead text-center">
+            <div class="masthead-content">
+                <div class="container px-5">
+                    <h1 class="masthead-heading mb-0">Conocenos</h1>
+                    <h2 class="masthead-subheading mb-0">Somos una tienda de abarrotes que es atendida por la Familia Cardenas Torres</h2>
+                    <a class="btn btn-primary btn-xl rounded-pill mt-5" href="#scroll">Leer mas </a>
+                    
+                </div>
+            </div>
+            <div class="bg-circle-1 bg-circle"></div>
+            <div class="bg-circle-2 bg-circle"></div>
+            <div class="bg-circle-3 bg-circle"></div>
+            <div class="bg-circle-4 bg-circle"></div>
+        </header>
+        <!-- Content section 1-->
+        <section id="scroll">
+            <div class="cont">
+                <div class="per">
+                    <div class="prod input-group mb-3">
+                        <h2 class="display-4">Excelente Ubicacion</h2>
+                        <p>Estamos Ubicados en el estado de Colima en el municipio de Villa de Alvarez en Prol. Hidalgo, Arboledas del Carmen.</p>
+                    </div>
+                    <div class="prod">
+                        <img id="pr" class="img-fluid rounded-circle" src="uploads/l.png" alt="..." />
+                    </div>
+                </div>
+                <div class="per">
+                    <div class="prod input-group mb-3">
+                        <h4 >La mercancia que tenemos en nuestro local es de la mejor calidad que se puede encontrar en Villa de Alvarez. Colima
+                        </h4>
+                    </div>
+                    <div class="prod">
+                        <img id="pr" class="img-fluid rounded-circle" src="uploads/descargar09.jpeg" alt="..." />
+                    </div>
+                </div>
+                <div class="per">
+                    <div class="prod input-group mb-3">
+                        <h3>Visitanos te estamos esperando y disfruta de nuestros productos</h3>
+                    </div>
+                </div>
+                <div class="prod">
+                    <img id="pr" class="img-fluid rounded-circle" src="uploads/juan2.png" alt="..." />        
+                </div>
+            </div>
+        </section>
+        {% include 'sitio/pie.html' %}

@@ -1,0 +1,113 @@
+{% include 'admin/caad.html' %}
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-4">
+           <div class="card text-bg-dark">
+                <div class="card-header">
+                    Agregar Cliente
+                </div>
+                <div class="card-body">
+
+                    <form action='/agreclie' method="post">
+                        
+                        <div class="mb-3">
+                          <label for="Codigo" class="form-label">ID</label>
+                          <input type="number" required min="0"
+                            class="form-control" name="Codigo" id="CD" aria-describedby="helpId" placeholder="Codigo del cliente">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Nombre" class="form-label">Nombre</label>
+                            <input type="text" required
+                              class="form-control" name="Nombre" id="NOM" aria-describedby="helpId" placeholder="Nombre del cliente">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Edad" class="form-label">Edad</label>
+                            <input type="number" required min="0"
+                              class="form-control" name="Prec" id="PC" aria-describedby="helpId" placeholder="Edad del cliente">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Nombreusuario" class="form-label">Nombre Usuario</label>
+                            <input type="text" required
+                              class="form-control" name="Prev" id="PV" aria-describedby="helpId" placeholder="Nombre de usuario">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Email" class="form-label">Correo electronico</label>
+                            <input type="email" required
+                              class="form-control" name="Existen" id="EXI" aria-describedby="helpId" placeholder="Correo electronico">
+                          </div>
+                          <div class="mb-3">
+                            <label for="Contraseña" class="form-label">Contraseña</label>
+                            <input type="password" required
+                              class="form-control" name="Rest" id="RES" aria-describedby="helpId" placeholder="Contraseña">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Agregar</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card text-bg-dark">
+                 <div class="card-header">
+                    Usuarios
+                 </div>
+                 <div class="card-body">
+ 
+                    <div class="container ">
+                        <div class="row table-responsive">
+                                        <table class="table table-dark table-responsive">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nombre</th>
+                                                    <th>Edad</th>
+                                                    <th>Usuario</th>
+                                                    <th>Correo</th>
+                                                    <th>
+                                                        {% if session['rango']=="empleado" %}
+                                                                <a>Acción</a>
+                                                        {% endif %}
+                                                        {% if session['rango']=="admin" %}
+                                                        <a>Acciones</a>
+                                                        {% endif %}
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for producto in productos %}
+                                                    
+                                                <tr>
+                                                    <td>{{producto[0] }}</td>
+                                                    <td>{{producto[1] }}</td>
+                                                    <td>{{producto[2] }}</td>
+                                                    <td>{{producto[3] }}</td>
+                                                    <td>{{producto[4] }}</td>
+                                                    <td>
+                                                        {% if session['rango']!="cliente" %}
+                                                            <a type="button" class="btn btn-warning" href="/edidc/{{producto[0]}}">Editar</a> 
+                                                            {% if session['rango']=="admin" %}
+                                                                <a>|</a>
+                                                                <a type="button" class="btn btn-danger" href="/destroyClient/{{producto[0]}}">Eliminar</a>
+                                                            {% endif %}
+                                                        {% endif %}
+                                                    </td>
+                                                    
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                        </table>
+                                        </form>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+ 
+                 </div>
+             </div>
+            </div>
+    </div>
+</div>
+
+{% include 'admin/piead.html' %}
